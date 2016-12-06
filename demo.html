@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1">
+<title>Aspect Ratio Demo</title>
+
+<link href=example/aspect-ratio.css rel=stylesheet>
+
+<h1>Aspect Ratio Demo</h1>
+
+<h2 id=ratio-alone>Ratio Alone</h2>
+<div id=demo-1></div>
+
+<style>/* Ratio Alone */
+
+#demo-1 {
+  -eq-aspect-ratio: 16/9;
+}
+</style>
+
+<h2 id=width-and-ratio>Width and Ratio</h2>
+<div id=demo-2></div>
+
+<style>/* Width and Ratio */
+
+#demo-2 {
+  width: 200px;
+  -eq-aspect-ratio: 16/9;
+}
+</style>
+
+<h2 id=height-and-ratio>Height and Ratio</h2>
+<div id=demo-3></div>
+
+<style>/* Height and Ratio */
+
+#demo-3 {
+  height: 200px;
+  -eq-aspect-ratio: 16/9;
+}
+</style>
+
+<h2 id=width-and-height-and-ratio>Width and Height and Ratio</h2>
+<div id=demo-4></div>
+
+<style>/* Width and Height and Ratio */
+
+#demo-4 {
+  width: 200px;
+  height: 200px;
+  -eq-aspect-ratio: 16/9;
+}
+</style>
+
+<h2 id=important-weaker>!Important Weaker than Specified Width and Height</h2>
+<div id=demo-5></div>
+
+<style>/* !important weaker than specified Width and Height */
+
+#demo-5 {
+  width: 200px;
+  height: 200px;
+  -eq-aspect-ratio: 16/9 !important;
+}
+
+</style>
+
+<h2 id-external-stylesheet>External Stylesheet (<code>example/aspect-ratio.css</code>)</h2>
+
+<h3 id=external-demo-1>External Demo 1</h3>
+<div id=aspect-ratio-demo-1>
+#aspect-ratio-demo-1 {
+  -eq-aspect-ratio: 1/1;
+}
+</div>
+
+<h3 id=external-demo-2>External Demo 2</h3>
+<div id=aspect-ratio-demo-2>#aspect-ratio-demo-2 {
+  -eq-aspect-ratio: 16/9;
+}
+</div>
+
+<h3 id=external-demo-3>External Demo 3</h3>
+<div id=aspect-ratio-demo-3>#aspect-ratio-demo-3 {
+  -eq-aspect-ratio: 4/3;
+}
+</div>
+
+<h3 id=external-demo-4>External Demo 4</h3>
+<div id=aspect-ratio-demo-4>#aspect-ratio-demo-4 {
+  -eq-aspect-ratio: 1/2;
+}
+</div>
+
+<h3 id=external-demo-5>External Demo 5</h3>
+<div id=aspect-ratio-demo-5>#aspect-ratio-demo-5 {
+  -eq-aspect-ratio: 2/1;
+}
+</div>
+
+<style>
+  * {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-kerning: auto;
+  }
+  body {
+    max-width: 1000px;
+    margin: 1em auto;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+  style:not(:last-of-type) {
+    display: block;
+    width: 100%;
+    padding: 1em;
+    margin: 1em 0 2em 0;
+    border-radius: 3px;
+    font-size: 12pt;
+    font-family: 'Source Code Pro', monospace;
+    word-break: break-word;
+    white-space: pre-wrap;
+    color: rgba(0,0,0,.7);
+    background: transparent;
+    border: 1px solid rgba(0,0,0,.3);
+  }
+  :target {
+    color: red;
+  }
+  div {
+    border-radius: .2em;
+    border: 1px solid #0c0;
+    padding: 1.5em;
+    background: lime;
+    margin: 1em 0 2em 0;
+  }
+  [id^=aspect-ratio-demo-] {
+    padding: 1em;
+    margin: 1em 0 2em 0;
+    font-size: 12pt;
+    font-family: 'Source Code Pro', monospace;
+    word-break: break-word;
+    white-space: pre-wrap;
+    color: rgba(0,0,0,.7);
+  }
+</style>
+
+<script src=plugin/aspect-ratio.js></script>

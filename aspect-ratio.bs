@@ -1,0 +1,11 @@
+<link href=https://drafts.csswg.org/default.css rel=stylesheet>
+
+<h1>Aspect Ratio</h1>
+
+<pre class=metadata>
+Shortname: aspect-ratio
+Status: DREAM
+Editor: Tommy Hodgins, tomhodgins@gmail.com
+Abstract: To provide a syntax for describing the desired aspect ratio of an element
+</pre>
+
