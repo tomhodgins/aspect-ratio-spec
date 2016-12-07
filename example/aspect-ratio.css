@@ -1,21 +1,21 @@
 /* Aspect Ratio CSS Test Sheet */
 
 #aspect-ratio-demo-1 {
-  -eq-aspect-ratio: 1/1;
+  aspect-ratio: 1/1;
 }
 
 #aspect-ratio-demo-2 {
-  -eq-aspect-ratio: 16/9;
+  aspect-ratio: 16/9;
 }
 
 #aspect-ratio-demo-3 {
-  -eq-aspect-ratio: 4/3;
+  aspect-ratio: 4/3;
 }
 
 #aspect-ratio-demo-4 {
-  -eq-aspect-ratio: 1/2;
+  aspect-ratio: 1/2;
 }
 
 #aspect-ratio-demo-5 {
-  -eq-aspect-ratio: 2/1;
+  aspect-ratio: 2/1;
 }

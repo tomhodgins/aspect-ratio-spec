@@ -5,16 +5,16 @@ An aspect ratio polyfill for CSS
 
 ## Usage
 
-This polyfill supports a custom `aspect-ratio` property which is not currently in CSS. It works using the `-eq` prefix, using the following syntax:
+This polyfill supports a custom `aspect-ratio` property which is not currently in CSS. It works using the following syntax:
 
     selector {
-      -eq-aspect-ratio: width / height;
+      aspect-ratio: width / height;
     }
 
 So for example, to give a 16/9 aspect ratio to a div:
 
     div {
-      -eq-aspect-ratio: 16/9;
+      aspect-ratio: 16/9;
     }
 
 You can also supply a `width` ~or~ `height`, but if at any time you have supplied both a `width` ~and~ `height` they take precedence over any `aspect-ratio` setting you may have defined.
@@ -51,7 +51,7 @@ function load(){
 
 function parse(text){
   var css = text || ''
-  css.replace(/\n/g,'').replace(/\}/g,'}\n').replace(/\s*{/g,'{').replace(/^\s*/gm,'').replace(/^(.*?)\s?{.*-eq-aspect-ratio:\s*(\d*\.?\d+)\/(\d*\.?\d+)/gm,function(match,$1,$2,$3){
+  css.replace(/\n/g,'').replace(/\}/g,'}\n').replace(/\s*{/g,'{').replace(/^\s*/gm,'').replace(/^(.*?)\s?{.*aspect-ratio:\s*(\d*\.?\d+)\/(\d*\.?\d+)/gm,function(match,$1,$2,$3){
     var rule = [$1,$2,$3]
     rules.push(rule)
   })

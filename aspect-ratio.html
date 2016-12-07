@@ -1177,7 +1177,6 @@ Possible extra rowspan handling
 	}
 </style>
   <meta content="Bikeshed version 1d4d2b1d1fc168e39cb7f99218de7951c5736ec7" name="generator">
-  <link href="https://drafts.csswg.org/default.css" rel="stylesheet">
 <style>/* style-md-lists */
 
             /* This is a weird hack for me not yet following the commonmark spec
@@ -1187,35 +1186,6 @@ Possible extra rowspan handling
             }
             [data-md] > :last-child {
                 margin-bottom: 0;
-            }</style>
-<style>/* style-counters */
-
-            body {
-                counter-reset: example figure issue;
-            }
-            .issue {
-                counter-increment: issue;
-            }
-            .issue:not(.no-marker)::before {
-                content: "Issue " counter(issue);
-            }
-
-            .example {
-                counter-increment: example;
-            }
-            .example:not(.no-marker)::before {
-                content: "Example " counter(example);
-            }
-            .invalid.example:not(.no-marker)::before,
-            .illegal.example:not(.no-marker)::before {
-                content: "Invalid Example" counter(example);
-            }
-
-            figcaption {
-                counter-increment: figure;
-            }
-            figcaption:not(.no-marker)::before {
-                content: "Figure " counter(figure) " ";
             }</style>
 <style>/* style-selflinks */
 
@@ -1263,6 +1233,35 @@ Possible extra rowspan handling
             a.self-link::before            { content: "¶"; }
             .heading > a.self-link::before { content: "§"; }
             dfn > a.self-link::before      { content: "#"; }</style>
+<style>/* style-counters */
+
+            body {
+                counter-reset: example figure issue;
+            }
+            .issue {
+                counter-increment: issue;
+            }
+            .issue:not(.no-marker)::before {
+                content: "Issue " counter(issue);
+            }
+
+            .example {
+                counter-increment: example;
+            }
+            .example:not(.no-marker)::before {
+                content: "Example " counter(example);
+            }
+            .invalid.example:not(.no-marker)::before,
+            .illegal.example:not(.no-marker)::before {
+                content: "Invalid Example" counter(example);
+            }
+
+            figcaption {
+                counter-increment: figure;
+            }
+            figcaption:not(.no-marker)::before {
+                content: "Figure " counter(figure) " ";
+            }</style>
 <style>/* style-autolinks */
 
             .css.css, .property.property, .descriptor.descriptor {
@@ -1325,13 +1324,110 @@ Possible extra rowspan handling
             [data-link-type=biblio] {
                 white-space: pre;
             }</style>
+<style>/* style-dfn-panel */
+
+        .dfn-panel {
+            position: absolute;
+            z-index: 35;
+            height: auto;
+            width: -webkit-fit-content;
+            width: fit-content;
+            max-width: 300px;
+            max-height: 500px;
+            overflow: auto;
+            padding: 0.5em 0.75em;
+            font: small Helvetica Neue, sans-serif, Droid Sans Fallback;
+            background: #DDDDDD;
+            color: black;
+            border: outset 0.2em;
+        }
+        .dfn-panel:not(.on) { display: none; }
+        .dfn-panel * { margin: 0; padding: 0; text-indent: 0; }
+        .dfn-panel > b { display: block; }
+        .dfn-panel a { color: black; }
+        .dfn-panel a:not(:hover) { text-decoration: none !important; border-bottom: none !important; }
+        .dfn-panel > b + b { margin-top: 0.25em; }
+        .dfn-panel ul { padding: 0; }
+        .dfn-panel li { list-style: inside; }
+        .dfn-panel.activated {
+            display: inline-block;
+            position: fixed;
+            left: .5em;
+            bottom: 2em;
+            margin: 0 auto;
+            max-width: calc(100vw - 1.5em - .4em - .5em);
+            max-height: 30vh;
+        }
+
+        .dfn-paneled { cursor: pointer; }
+        </style>
+<style>/* style-syntax-highlighting */
+
+        .highlight:not(.idl) { background: hsl(24, 20%, 95%); }
+        code.highlight { padding: .1em; border-radius: .3em; }
+        pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
+        .highlight .c { color: #708090 } /* Comment */
+        .highlight .k { color: #990055 } /* Keyword */
+        .highlight .l { color: #000000 } /* Literal */
+        .highlight .n { color: #0077aa } /* Name */
+        .highlight .o { color: #999999 } /* Operator */
+        .highlight .p { color: #999999 } /* Punctuation */
+        .highlight .cm { color: #708090 } /* Comment.Multiline */
+        .highlight .cp { color: #708090 } /* Comment.Preproc */
+        .highlight .c1 { color: #708090 } /* Comment.Single */
+        .highlight .cs { color: #708090 } /* Comment.Special */
+        .highlight .kc { color: #990055 } /* Keyword.Constant */
+        .highlight .kd { color: #990055 } /* Keyword.Declaration */
+        .highlight .kn { color: #990055 } /* Keyword.Namespace */
+        .highlight .kp { color: #990055 } /* Keyword.Pseudo */
+        .highlight .kr { color: #990055 } /* Keyword.Reserved */
+        .highlight .kt { color: #990055 } /* Keyword.Type */
+        .highlight .ld { color: #000000 } /* Literal.Date */
+        .highlight .m { color: #000000 } /* Literal.Number */
+        .highlight .s { color: #a67f59 } /* Literal.String */
+        .highlight .na { color: #0077aa } /* Name.Attribute */
+        .highlight .nc { color: #0077aa } /* Name.Class */
+        .highlight .no { color: #0077aa } /* Name.Constant */
+        .highlight .nd { color: #0077aa } /* Name.Decorator */
+        .highlight .ni { color: #0077aa } /* Name.Entity */
+        .highlight .ne { color: #0077aa } /* Name.Exception */
+        .highlight .nf { color: #0077aa } /* Name.Function */
+        .highlight .nl { color: #0077aa } /* Name.Label */
+        .highlight .nn { color: #0077aa } /* Name.Namespace */
+        .highlight .py { color: #0077aa } /* Name.Property */
+        .highlight .nt { color: #669900 } /* Name.Tag */
+        .highlight .nv { color: #222222 } /* Name.Variable */
+        .highlight .ow { color: #999999 } /* Operator.Word */
+        .highlight .mb { color: #000000 } /* Literal.Number.Bin */
+        .highlight .mf { color: #000000 } /* Literal.Number.Float */
+        .highlight .mh { color: #000000 } /* Literal.Number.Hex */
+        .highlight .mi { color: #000000 } /* Literal.Number.Integer */
+        .highlight .mo { color: #000000 } /* Literal.Number.Oct */
+        .highlight .sb { color: #a67f59 } /* Literal.String.Backtick */
+        .highlight .sc { color: #a67f59 } /* Literal.String.Char */
+        .highlight .sd { color: #a67f59 } /* Literal.String.Doc */
+        .highlight .s2 { color: #a67f59 } /* Literal.String.Double */
+        .highlight .se { color: #a67f59 } /* Literal.String.Escape */
+        .highlight .sh { color: #a67f59 } /* Literal.String.Heredoc */
+        .highlight .si { color: #a67f59 } /* Literal.String.Interpol */
+        .highlight .sx { color: #a67f59 } /* Literal.String.Other */
+        .highlight .sr { color: #a67f59 } /* Literal.String.Regex */
+        .highlight .s1 { color: #a67f59 } /* Literal.String.Single */
+        .highlight .ss { color: #a67f59 } /* Literal.String.Symbol */
+        .highlight .vc { color: #0077aa } /* Name.Variable.Class */
+        .highlight .vg { color: #0077aa } /* Name.Variable.Global */
+        .highlight .vi { color: #0077aa } /* Name.Variable.Instance */
+        .highlight .il { color: #000000 } /* Literal.Number.Integer.Long */
+        </style>
  <body class="h-entry">
   <div class="head">
    <p data-fill-with="logo"></p>
-   <h1>Aspect Ratio</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas, <time class="dt-updated" datetime="2016-12-06">6 December 2016</time></span></h2>
+   <h1 class="p-name no-ref" id="title">Aspect Ratio</h1>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas, <time class="dt-updated" datetime="2016-12-07">7 December 2016</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
+     <dt>This version:
+     <dd><a class="u-url" href="https://github.com/tomhodgins/aspet-ratio-spec">https://github.com/tomhodgins/aspet-ratio-spec</a>
      <dt>Issue Tracking:
      <dd><a href="https://github.com/tomhodgins/aspect-ratio-spec/issues/">GitHub</a>
      <dt class="editor">Editor:
@@ -1341,7 +1437,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 6 December 2016,
+In addition, as of 7 December 2016,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1349,23 +1445,180 @@ Parts of this work may be from another specification document.  If so, those par
   </div>
   <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
   <div class="p-summary" data-fill-with="abstract">
-   <p>To provide a syntax for describing the desired aspect ratio of an element</p>
+   <p>To provide a syntax for a CSS property describing the desired <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio">aspect-ratio</a> of an element.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
    <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
    <ol class="toc" role="directory">
+    <li><a href="#aspect-ratio-syntax"><span class="secno">1</span> <span class="content">Syntax</span></a>
+    <li>
+     <a href="#calculating-aspect-ratio"><span class="secno">2</span> <span class="content">Calculating Aspect Ratio</span></a>
+     <ol class="toc">
+      <li><a href="#aspect-ratio"><span class="secno">2.1</span> <span class="content">If <span class="property">aspect-ratio</span> is defined</span></a>
+      <li><a href="#aspect-ratio-and-width"><span class="secno">2.2</span> <span class="content">If <span class="property">aspect-ratio</span> and <span class="property">width</span> are defined</span></a>
+      <li><a href="#aspect-ratio-and-height"><span class="secno">2.3</span> <span class="content">If <span class="property">aspect-ratio</span> and <span class="property">height</span> are defined</span></a>
+      <li><a href="#aspect-ratio-and-width-and-height"><span class="secno">2.4</span> <span class="content">If <span class="property">aspect-ratio</span> and <span class="property">width</span> and <span class="property">height</span> are defined</span></a>
+      <li><a href="#with-important"><span class="secno">2.5</span> <span class="content">If <span class="css">!important</span> is defined</span></a>
+     </ol>
     <li><a href="#conformance"><span class="secno"></span> <span class="content"> Conformance</span></a>
+    <li>
+     <a href="#index"><span class="secno"></span> <span class="content">Index</span></a>
+     <ol class="toc">
+      <li><a href="#index-defined-here"><span class="secno"></span> <span class="content">Terms defined by this specification</span></a>
+      <li><a href="#index-defined-elsewhere"><span class="secno"></span> <span class="content">Terms defined by reference</span></a>
+     </ol>
     <li>
      <a href="#references"><span class="secno"></span> <span class="content">References</span></a>
      <ol class="toc">
       <li><a href="#normative"><span class="secno"></span> <span class="content">Normative References</span></a>
      </ol>
+    <li><a href="#property-index"><span class="secno"></span> <span class="content">Property Index</span></a>
    </ol>
   </nav>
-  <main></main>
+  <main>
+   <h2 class="heading settled" data-level="1" id="aspect-ratio-syntax"><span class="secno">1. </span><span class="content">Syntax</span><a class="self-link" href="#aspect-ratio-syntax"></a></h2>
+   <table class="def propdef" data-link-for-hint="aspect-ratio">
+    <tbody>
+     <tr>
+      <th>Name:
+      <td><dfn class="dfn-paneled css" data-dfn-type="property" data-export="" id="propdef-aspect-ratio">aspect-ratio</dfn>
+     <tr class="value">
+      <th>Value:
+      <td class="prod"><a class="production css" data-link-type="type" href="https://drafts.csswg.org/mediaqueries-4/#typedef-ratio">&lt;ratio></a>
+     <tr>
+      <th>Initial:
+      <td>1/1;
+     <tr>
+      <th>Applies to:
+      <td><a href="https://drafts.csswg.org/css-pseudo/#generated-content" title="Includes ::before and ::after pseudo-elements.">all elements</a>
+     <tr>
+      <th>Inherited:
+      <td>no
+     <tr>
+      <th>Percentages:
+      <td>n/a
+     <tr>
+      <th>Media:
+      <td>visual
+     <tr>
+      <th>Computed value:
+      <td>specified value
+     <tr>
+      <th>Canonical order:
+      <td>per grammar
+     <tr>
+      <th>Animation type:
+      <td>discrete
+   </table>
+   <p>The <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-1">aspect-ratio</a> property is a property for CSS that allows you to define a desired aspect ratio for an element using the <a class="production css" data-link-type="type" href="https://drafts.csswg.org/mediaqueries-4/#typedef-ratio">&lt;ratio></a> value, a <code>width</code> and <code>height</code> separated by a slash character (<code>/</code>).</p>
+   <div class="example" id="example-e127dec4">
+    <a class="self-link" href="#example-e127dec4"></a> Example <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-2">aspect-ratio</a> syntax 
+<pre class="language-css highlight">aspect-ratio: width / height ;
+</pre>
+   </div>
+   <div class="example" id="example-29ff6fee">
+    <a class="self-link" href="#example-29ff6fee"></a> Example <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-3">aspect-ratio</a> property 
+<pre class="language-css highlight"><span class="nt">div </span><span class="p">{</span>
+  <span class="k">aspect-ratio</span><span class="p">:</span> <span class="m">4</span><span class="p">/</span><span class="m">3</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+   </div>
+   <h2 class="heading settled" data-level="2" id="calculating-aspect-ratio"><span class="secno">2. </span><span class="content">Calculating Aspect Ratio</span><a class="self-link" href="#calculating-aspect-ratio"></a></h2>
+   <p>The <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-4">aspect-ratio</a> will calculate the desired <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a>, or calculate nothing at all based on which properties are defined for an element.</p>
+   <table class="data" id="aspect-ratio-calculations">
+    <thead>
+     <tr>
+      <th>Aspect-Ratio 
+      <th>Width 
+      <th>Height 
+      <th>Calculated Property 
+    <tbody>
+     <tr>
+      <td>✓ 
+      <td>
+      <td>
+      <td>Height 
+     <tr>
+      <td>✓ 
+      <td>✓ 
+      <td>
+      <td>Height 
+     <tr>
+      <td>✓ 
+      <td>
+      <td>✓ 
+      <td>Width 
+     <tr>
+      <td>✓ 
+      <td>✓ 
+      <td>✓ 
+      <td>None 
+     <tr>
+      <td>✓ 
+      <td>✓ 
+      <td>✓ 
+      <td>None 
+   </table>
+   <h3 class="heading settled" data-level="2.1" id="aspect-ratio"><span class="secno">2.1. </span><span class="content">If <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-5">aspect-ratio</a> is defined</span><a class="self-link" href="#aspect-ratio"></a></h3>
+   <p>If the element has a defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-6">aspect-ratio</a> and does not have a defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> or <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a>, the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> will be calculated based on the element’s <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> on the page and the <a class="production css" data-link-type="type" href="https://drafts.csswg.org/mediaqueries-4/#typedef-ratio">&lt;ratio></a> defined by the property.</p>
+   <div class="example" id="example-0e778d98">
+    <a class="self-link" href="#example-0e778d98"></a> Example with <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-7">aspect-ratio</a> 
+<pre class="language-css highlight"><span class="nt">div </span><span class="p">{</span>
+  <span class="k">aspect-ratio</span><span class="p">:</span> <span class="m">1</span><span class="l">6</span><span class="p">/</span><span class="m">9</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+   </div>
+   <p>In this case an element that displayed <code>1000px</code> wide on the screen would have a calculated height of <code>1000 / (16/9)</code> which would result in a <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> of <code>562.49px</code>.</p>
+   <h3 class="heading settled" data-level="2.2" id="aspect-ratio-and-width"><span class="secno">2.2. </span><span class="content">If <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-8">aspect-ratio</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> are defined</span><a class="self-link" href="#aspect-ratio-and-width"></a></h3>
+   <p>If the element has a defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-9">aspect-ratio</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and does not have a defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a>, the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> will be calculated based on the element’s defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and the <a class="production css" data-link-type="type" href="https://drafts.csswg.org/mediaqueries-4/#typedef-ratio">&lt;ratio></a> defined by the property.</p>
+   <div class="example" id="example-59e63a0f">
+    <a class="self-link" href="#example-59e63a0f"></a> Example with defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> 
+<pre class="language-css highlight"><span class="nt">div </span><span class="p">{</span>
+  <span class="k">width</span><span class="p">:</span> <span class="m">200</span><span class="l">px</span><span class="p">;</span>
+  <span class="k">aspect-ratio</span><span class="p">:</span> <span class="m">1</span><span class="l">6</span><span class="p">/</span><span class="m">9</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+   </div>
+   <p>In this case an element has a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> of <code>200px</code> so the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> will be calculated as <code>200 / (16/9)</code> which would result in a <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> of <code>112.49px</code>.</p>
+   <h3 class="heading settled" data-level="2.3" id="aspect-ratio-and-height"><span class="secno">2.3. </span><span class="content">If <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-10">aspect-ratio</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> are defined</span><a class="self-link" href="#aspect-ratio-and-height"></a></h3>
+   <p>If the element has a defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-11">aspect-ratio</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> and does not have a defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a>, the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> will be calculated based on the element’s defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> and the <a class="production css" data-link-type="type" href="https://drafts.csswg.org/mediaqueries-4/#typedef-ratio">&lt;ratio></a> defined by the property.</p>
+   <div class="example" id="example-d9a4f71c">
+    <a class="self-link" href="#example-d9a4f71c"></a> Example with defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> 
+<pre class="language-css highlight"><span class="nt">div </span><span class="p">{</span>
+  <span class="k">height</span><span class="p">:</span> <span class="m">200</span><span class="l">px</span><span class="p">;</span>
+  <span class="k">aspect-ratio</span><span class="p">:</span> <span class="m">1</span><span class="l">6</span><span class="p">/</span><span class="m">9</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+   </div>
+   <p>In this case an element has a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> of <code>200px</code> so the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> will be calculated as <code>200 * (16/9)</code> which would result in a <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> of <code>355.55px</code>.</p>
+   <h3 class="heading settled" data-level="2.4" id="aspect-ratio-and-width-and-height"><span class="secno">2.4. </span><span class="content">If <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-12">aspect-ratio</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> are defined</span><a class="self-link" href="#aspect-ratio-and-width-and-height"></a></h3>
+   <p>If the element has a defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-13">aspect-ratio</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a>, the specified dimensions will override the <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-14">aspect-ratio</a>.</p>
+   <div class="example" id="example-b7b5e571">
+    <a class="self-link" href="#example-b7b5e571"></a> Example with defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> 
+<pre class="language-css highlight"><span class="nt">div </span><span class="p">{</span>
+  <span class="k">width</span><span class="p">:</span> <span class="m">200</span><span class="l">px</span><span class="p">;</span>
+  <span class="k">height</span><span class="p">:</span> <span class="m">200</span><span class="l">px</span><span class="p">;</span>
+  <span class="k">aspect-ratio</span><span class="p">:</span> <span class="m">1</span><span class="l">6</span><span class="p">/</span><span class="m">9</span><span class="p">;</span>
+<span class="p">}</span>
+</pre>
+   </div>
+   <p>In this case an element has a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> of <code>200px</code> and a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> of <code>200px</code>, so neither property will be calculated according to the defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-15">aspect-ratio</a>.</p>
+   <h3 class="heading settled" data-level="2.5" id="with-important"><span class="secno">2.5. </span><span class="content">If <span class="css">!important</span> is defined</span><a class="self-link" href="#with-important"></a></h3>
+   <p class="note" role="note">Note, even <span class="css">!important</span> won’t override a defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a></p>
+   <div class="example" id="example-efb7dfdc">
+    <a class="self-link" href="#example-efb7dfdc"></a> Example <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-16">aspect-ratio</a> with <span class="css">important</span> defined 
+<pre class="language-css highlight"><span class="nt">div </span><span class="p">{</span>
+  <span class="k">width</span><span class="p">:</span> <span class="m">200</span><span class="l">px</span><span class="p">;</span>
+  <span class="k">height</span><span class="p">:</span> <span class="m">200</span><span class="l">px</span><span class="p">;</span>
+  <span class="k">aspect-ratio</span><span class="p">:</span> <span class="m">1</span><span class="l">6</span><span class="p">/</span><span class="m">9</span> !important;
+}
+</pre>
+   </div>
+   <p>In this case an element has a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> of <code>200px</code> and a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> of <code>200px</code>, so even with <span class="css">!important</span> nothing will be calculated according to the defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-17">aspect-ratio</a>.</p>
+  </main>
   <div data-fill-with="conformance">
-   <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span></h2>
+   <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
    <p> Conformance requirements are expressed with a combination of descriptive assertions and RFC 2119 terminology.
             The key words “MUST”, “MUST NOT”, “REQUIRED”, “SHALL”, “SHALL NOT”, “SHOULD”, “SHOULD NOT”, “RECOMMENDED”, “MAY”, and “OPTIONAL”
             in the normative parts of this document
@@ -1510,9 +1763,130 @@ Parts of this work may be from another specification document.  If so, those par
 
 })();
 </script>
-  <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span></h2>
-  <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span></h3>
+  <h2 class="no-num no-ref heading settled" id="index"><span class="content">Index</span><a class="self-link" href="#index"></a></h2>
+  <h3 class="no-num no-ref heading settled" id="index-defined-here"><span class="content">Terms defined by this specification</span><a class="self-link" href="#index-defined-here"></a></h3>
+  <ul class="index">
+   <li><a href="#propdef-aspect-ratio">aspect-ratio</a><span>, in §1</span>
+  </ul>
+  <h3 class="no-num no-ref heading settled" id="index-defined-elsewhere"><span class="content">Terms defined by reference</span><a class="self-link" href="#index-defined-elsewhere"></a></h3>
+  <ul class="index">
+   <li>
+    <a data-link-type="biblio">[CSS2]</a> defines the following terms:
+    <ul>
+     <li><a href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a>
+     <li><a href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a>
+    </ul>
+   <li>
+    <a data-link-type="biblio">[mediaqueries-4]</a> defines the following terms:
+    <ul>
+     <li><a href="https://drafts.csswg.org/mediaqueries-4/#typedef-ratio">&lt;ratio></a>
+    </ul>
+  </ul>
+  <h2 class="no-num no-ref heading settled" id="references"><span class="content">References</span><a class="self-link" href="#references"></a></h2>
+  <h3 class="no-num no-ref heading settled" id="normative"><span class="content">Normative References</span><a class="self-link" href="#normative"></a></h3>
   <dl>
+   <dt id="biblio-css2">[CSS2]
+   <dd>Bert Bos; et al. <a href="https://www.w3.org/TR/CSS2">Cascading Style Sheets Level 2 Revision 1 (CSS 2.1) Specification</a>. 7 June 2011. REC. URL: <a href="https://www.w3.org/TR/CSS2">https://www.w3.org/TR/CSS2</a>
+   <dt id="biblio-mediaqueries-4">[MEDIAQUERIES-4]
+   <dd>Florian Rivoal; Tab Atkins Jr.. <a href="https://drafts.csswg.org/mediaqueries-4/">Media Queries Level 4</a>. URL: <a href="https://drafts.csswg.org/mediaqueries-4/">https://drafts.csswg.org/mediaqueries-4/</a>
    <dt id="biblio-rfc2119">[RFC2119]
    <dd>S. Bradner. <a href="https://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>. March 1997. Best Current Practice. URL: <a href="https://tools.ietf.org/html/rfc2119">https://tools.ietf.org/html/rfc2119</a>
   </dl>
+  <h2 class="no-num no-ref heading settled" id="property-index"><span class="content">Property Index</span><a class="self-link" href="#property-index"></a></h2>
+  <div class="big-element-wrapper">
+   <table class="index">
+    <thead>
+     <tr>
+      <th scope="col">Name
+      <th scope="col">Value
+      <th scope="col">Initial
+      <th scope="col">Applies to
+      <th scope="col">Inh.
+      <th scope="col">%ages
+      <th scope="col">Media
+      <th scope="col">Anim­ation type
+      <th scope="col">Canonical order
+      <th scope="col">Com­puted value
+    <tbody>
+     <tr>
+      <th scope="row"><a class="css" data-link-type="property" href="#propdef-aspect-ratio">aspect-ratio</a>
+      <td>&lt;ratio>
+      <td>1/1;
+      <td>all elements
+      <td>no
+      <td>n/a
+      <td>visual
+      <td>discrete
+      <td>per grammar
+      <td>specified value
+   </table>
+  </div>
+  <aside class="dfn-panel" data-for="propdef-aspect-ratio">
+   <b><a href="#propdef-aspect-ratio">#propdef-aspect-ratio</a></b><b>Referenced in:</b>
+   <ul>
+    <li><a href="#ref-for-propdef-aspect-ratio-1">1. Syntax</a> <a href="#ref-for-propdef-aspect-ratio-2">(2)</a> <a href="#ref-for-propdef-aspect-ratio-3">(3)</a>
+    <li><a href="#ref-for-propdef-aspect-ratio-4">2. Calculating Aspect Ratio</a>
+    <li><a href="#ref-for-propdef-aspect-ratio-5">2.1. If aspect-ratio is defined</a> <a href="#ref-for-propdef-aspect-ratio-6">(2)</a> <a href="#ref-for-propdef-aspect-ratio-7">(3)</a>
+    <li><a href="#ref-for-propdef-aspect-ratio-8">2.2. If aspect-ratio and width are defined</a> <a href="#ref-for-propdef-aspect-ratio-9">(2)</a>
+    <li><a href="#ref-for-propdef-aspect-ratio-10">2.3. If aspect-ratio and height are defined</a> <a href="#ref-for-propdef-aspect-ratio-11">(2)</a>
+    <li><a href="#ref-for-propdef-aspect-ratio-12">2.4. If aspect-ratio and width and height are defined</a> <a href="#ref-for-propdef-aspect-ratio-13">(2)</a> <a href="#ref-for-propdef-aspect-ratio-14">(3)</a> <a href="#ref-for-propdef-aspect-ratio-15">(4)</a>
+    <li><a href="#ref-for-propdef-aspect-ratio-16">2.5. If !important is defined</a> <a href="#ref-for-propdef-aspect-ratio-17">(2)</a>
+   </ul>
+  </aside>
+<script>/* script-dfn-panel */
+
+        document.body.addEventListener("click", function(e) {
+            var queryAll = function(sel) { return [].slice.call(document.querySelectorAll(sel)); }
+            // Find the dfn element or panel, if any, that was clicked on.
+            var el = e.target;
+            var target;
+            var hitALink = false;
+            while(el.parentElement) {
+                if(el.tagName == "A") {
+                    // Clicking on a link in a <dfn> shouldn't summon the panel
+                    hitALink = true;
+                }
+                if(el.classList.contains("dfn-paneled")) {
+                    target = "dfn";
+                    break;
+                }
+                if(el.classList.contains("dfn-panel")) {
+                    target = "dfn-panel";
+                    break;
+                }
+                el = el.parentElement;
+            }
+            if(target != "dfn-panel") {
+                // Turn off any currently "on" or "activated" panels.
+                queryAll(".dfn-panel.on, .dfn-panel.activated").forEach(function(el){
+                    el.classList.remove("on");
+                    el.classList.remove("activated");
+                });
+            }
+            if(target == "dfn" && !hitALink) {
+                // open the panel
+                var dfnPanel = document.querySelector(".dfn-panel[data-for='" + el.id + "']");
+                if(dfnPanel) {
+                    console.log(dfnPanel);
+                    dfnPanel.classList.add("on");
+                    var rect = el.getBoundingClientRect();
+                    dfnPanel.style.left = window.scrollX + rect.right + 5 + "px";
+                    dfnPanel.style.top = window.scrollY + rect.top + "px";
+                    var panelRect = dfnPanel.getBoundingClientRect();
+                    var panelWidth = panelRect.right - panelRect.left;
+                    if(panelRect.right > document.body.scrollWidth && (rect.left - (panelWidth + 5)) > 0) {
+                        // Reposition, because the panel is overflowing
+                        dfnPanel.style.left = window.scrollX + rect.left - (panelWidth + 5) + "px";
+                    }
+                } else {
+                    console.log("Couldn't find .dfn-panel[data-for='" + el.id + "']");
+                }
+            } else if(target == "dfn-panel") {
+                // Switch it to "activated" state, which pins it.
+                el.classList.add("activated");
+                el.style.left = null;
+                el.style.top = null;
+            }
+
+        });
+        </script>

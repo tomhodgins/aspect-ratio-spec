@@ -1,11 +1,167 @@
-<link href=https://drafts.csswg.org/default.css rel=stylesheet>
-
-<h1>Aspect Ratio</h1>
-
 <pre class=metadata>
+Title: Aspect Ratio
 Shortname: aspect-ratio
 Status: DREAM
+URL: https://github.com/tomhodgins/aspet-ratio-spec
+Repository: tomhodgins/aspect-ratio-spec
 Editor: Tommy Hodgins, tomhodgins@gmail.com
-Abstract: To provide a syntax for describing the desired aspect ratio of an element
+Abstract: To provide a syntax for a CSS property describing the desired 'aspect-ratio' of an element.
 </pre>
 
+<h2 id=aspect-ratio-syntax>Syntax</h2>
+
+    <pre class=propdef>
+    Name: aspect-ratio
+    Value: <<ratio>>
+    Initial: 1/1;
+    Inherited: no 
+    Computed value: specified value
+    Media: visual
+    </pre>
+
+    The 'aspect-ratio' property is a property for CSS that allows you to define a desired aspect ratio for an element using the <<ratio>> value, a <code>width</code> and <code>height</code> separated by a slash character (<code>/</code>).
+
+    <div class=example>
+      Example 'aspect-ratio' syntax
+      <pre class=language-css>
+        aspect-ratio: width / height ;
+      </pre>
+    </div>
+
+    <div class=example>
+      Example 'aspect-ratio' property
+      <pre class=language-css>
+        div {
+          aspect-ratio: 4/3;
+        }
+      </pre>
+    </div>
+
+<h2 id=calculating-aspect-ratio>Calculating Aspect Ratio</h2>
+
+  The 'aspect-ratio' will calculate the desired 'width', 'height', or calculate nothing at all based on which properties are defined for an element.
+
+  <table class=data id=aspect-ratio-calculations>
+    <thead>
+      <tr>
+        <th>Aspect-Ratio
+        <th>Width
+        <th>Height
+        <th>Calculated Property
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>✓
+        <td>
+        <td>
+        <td>Height
+      </tr>
+      <tr>
+        <td>✓
+        <td>✓
+        <td>
+        <td>Height
+      </tr>
+      <tr>
+        <td>✓
+        <td>
+        <td>✓
+        <td>Width
+      </tr>
+      <tr>
+        <td>✓
+        <td>✓
+        <td>✓
+        <td>None
+      </tr>
+      <tr>
+        <td>✓
+        <td>✓
+        <td>✓
+        <td>None
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id=aspect-ratio>If 'aspect-ratio' is defined</h3>
+
+    If the element has a defined 'aspect-ratio' and does not have a defined 'width' or 'height', the 'height' will be calculated based on the element's 'width' on the page and the <<ratio>> defined by the property.
+
+    <div class=example>
+      Example with 'aspect-ratio'
+      <pre class=language-css>
+        div {
+          aspect-ratio: 16/9;
+        }
+      </pre>
+    </div>
+
+    In this case an element that displayed <code>1000px</code> wide on the screen would have a calculated height of <code>1000 / (16/9)</code> which would result in a 'height' of <code>562.49px</code>.
+
+  <h3 id=aspect-ratio-and-width>If 'aspect-ratio' and 'width' are defined</h3>
+
+    If the element has a defined 'aspect-ratio' and 'width' and does not have a defined 'height', the 'height' will be calculated based on the element's defined 'width' and the <<ratio>> defined by the property.
+
+    <div class=example>
+      Example with defined 'width'
+      <pre class=language-css>
+        div {
+          width: 200px;
+          aspect-ratio: 16/9;
+        }
+      </pre>
+    </div>
+
+    In this case an element has a specified 'width' of <code>200px</code> so the 'height' will be calculated as <code>200 / (16/9)</code> which would result in a 'height' of <code>112.49px</code>.
+
+  <h3 id=aspect-ratio-and-height>If 'aspect-ratio' and 'height' are defined</h3>
+
+    If the element has a defined 'aspect-ratio' and 'height' and does not have a defined 'width', the 'width' will be calculated based on the element's defined 'height' and the <<ratio>> defined by the property.
+
+    <div class=example>
+      Example with defined 'height'
+      <pre class=language-css>
+        div {
+          height: 200px;
+          aspect-ratio: 16/9;
+        }
+      </pre>
+    </div>
+
+    In this case an element has a specified 'height' of <code>200px</code> so the 'width' will be calculated as <code>200 * (16/9)</code> which would result in a 'width' of <code>355.55px</code>.
+
+  <h3 id=aspect-ratio-and-width-and-height>If 'aspect-ratio' and 'width' and 'height' are defined</h3>
+
+    If the element has a defined 'aspect-ratio' and 'width' and 'height', the specified dimensions will override the 'aspect-ratio'.
+
+    <div class=example>
+      Example with defined 'width' and 'height'
+      <pre class=language-css>
+        div {
+          width: 200px;
+          height: 200px;
+          aspect-ratio: 16/9;
+        }
+      </pre>
+    </div>
+
+    In this case an element has a specified 'width' of <code>200px</code> and a specified 'height' of <code>200px</code>, so neither property will be calculated according to the defined 'aspect-ratio'.
+
+
+  <h3 id=with-important>If ''!important'' is defined</h2>
+
+    Note, even ''!important'' won't override a defined 'width' and 'height'
+
+    <div class=example>
+      Example 'aspect-ratio' with ''important'' defined
+      <pre class=language-css>
+        div {
+          width: 200px;
+          height: 200px;
+          aspect-ratio: 16/9 !important;
+        }
+      </pre>
+    </div>
+
+    In this case an element has a specified 'width' of <code>200px</code> and a specified 'height' of <code>200px</code>, so even with ''!important'' nothing will be calculated according to the defined 'aspect-ratio'.

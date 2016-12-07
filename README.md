@@ -2,6 +2,10 @@
 
 A spec for an Aspect Ratio property in CSS
 
+**View online:** [aspect-ratio.html](https://tomhodgins.github.io/aspect-ratio-spec/aspect-ratio.html)
+
+**View demo:** [demo.html](https://tomhodgins.github.io/aspect-ratio-spec/demo.html)
+
 ## What is this about?
 
 This spec aims to define an `aspect-ratio` property to provide a way CSS authors can inform the browser of a desired aspect ratio for an element unless a more specific `width` and `height` are defined.
