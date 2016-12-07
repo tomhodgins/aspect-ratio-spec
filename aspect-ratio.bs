@@ -2,7 +2,7 @@
 Title: Aspect Ratio
 Shortname: aspect-ratio
 Status: DREAM
-URL: https://github.com/tomhodgins/aspet-ratio-spec
+URL: https://github.com/tomhodgins/aspect-ratio-spec
 Repository: tomhodgins/aspect-ratio-spec
 Editor: Tommy Hodgins, tomhodgins@gmail.com
 Abstract: To provide a syntax for a CSS property describing the desired 'aspect-ratio' of an element.
