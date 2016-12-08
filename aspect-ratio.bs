@@ -5,37 +5,38 @@ Status: DREAM
 URL: https://github.com/tomhodgins/aspect-ratio-spec
 Repository: tomhodgins/aspect-ratio-spec
 Editor: Tommy Hodgins, tomhodgins@gmail.com
-Abstract: To provide a syntax for a CSS property describing the desired 'aspect-ratio' of an element.
+Abstract: The goal of this document is to define the syntax and functionality of a new 'aspect-ratio' property for a CSS to allow CSS authors to describe the desired 'aspect-ratio' of an element, unless a more specific 'width' and 'height' are assigned.
 </pre>
 
-<h2 id=aspect-ratio-syntax>Syntax</h2>
+<h2 id=aspect-ratio-syntax>Aspect Ratio Syntax</h2>
 
-    <pre class=propdef>
-    Name: aspect-ratio
-    Value: <<ratio>>
-    Initial: 1/1;
-    Inherited: no 
-    Computed value: specified value
-    Media: visual
+  <pre class=propdef>
+  Name: aspect-ratio
+  Value: <<ratio>>
+  Initial: 1/1;
+  Inherited: no 
+  Applies to: block elements
+  Computed value: specified value
+  Media: visual
+  </pre>
+
+  The 'aspect-ratio' property is a property for CSS that allows you to define a desired aspect ratio for an element using the <<ratio>> value, a <code>width</code> and <code>height</code> separated by a slash character (<code>/</code>).
+
+  <div class=example>
+    Example 'aspect-ratio' syntax
+    <pre class=language-css>
+      aspect-ratio: width / height ;
     </pre>
+  </div>
 
-    The 'aspect-ratio' property is a property for CSS that allows you to define a desired aspect ratio for an element using the <<ratio>> value, a <code>width</code> and <code>height</code> separated by a slash character (<code>/</code>).
-
-    <div class=example>
-      Example 'aspect-ratio' syntax
-      <pre class=language-css>
-        aspect-ratio: width / height ;
-      </pre>
-    </div>
-
-    <div class=example>
-      Example 'aspect-ratio' property
-      <pre class=language-css>
-        div {
-          aspect-ratio: 4/3;
-        }
-      </pre>
-    </div>
+  <div class=example>
+    Example 'aspect-ratio' property
+    <pre class=language-css>
+      div {
+        aspect-ratio: 4/3;
+      }
+    </pre>
+  </div>
 
 <h2 id=calculating-aspect-ratio>Calculating Aspect Ratio</h2>
 
@@ -76,7 +77,7 @@ Abstract: To provide a syntax for a CSS property describing the desired 'aspect-
         <td>None
       </tr>
       <tr>
-        <td>✓
+        <td>✓ ''!important''
         <td>✓
         <td>✓
         <td>None
@@ -148,8 +149,7 @@ Abstract: To provide a syntax for a CSS property describing the desired 'aspect-
 
     In this case an element has a specified 'width' of <code>200px</code> and a specified 'height' of <code>200px</code>, so neither property will be calculated according to the defined 'aspect-ratio'.
 
-
-  <h3 id=with-important>If ''!important'' is defined</h2>
+  <h4 id=with-important>If ''!important'' is defined</h4>
 
     Note, even ''!important'' won't override a defined 'width' and 'height'
 

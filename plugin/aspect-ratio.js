@@ -1,27 +1,4 @@
-/*
-
-# Rational
-An aspect ratio polyfill for CSS
-
-## Usage
-
-This polyfill supports a custom `aspect-ratio` property which is not currently in CSS. It works using the following syntax:
-
-    selector {
-      aspect-ratio: width / height;
-    }
-
-So for example, to give a 16/9 aspect ratio to a div:
-
-    div {
-      aspect-ratio: 16/9;
-    }
-
-You can also supply a `width` ~or~ `height`, but if at any time you have supplied both a `width` ~and~ `height` they take precedence over any `aspect-ratio` setting you may have defined.
-
-written by @innovati
-
-*/
+/* Aspect Ratio plugin for github.com/tomhodgins/aspect-ratio-spec */
 
 var rules = []
 
