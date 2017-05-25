@@ -1423,7 +1423,7 @@ Possible extra rowspan handling
   <div class="head">
    <p data-fill-with="logo"></p>
    <h1 class="p-name no-ref" id="title">Aspect Ratio</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas, <time class="dt-updated" datetime="2016-12-08">8 December 2016</time></span></h2>
+   <h2 class="no-num no-toc no-ref heading settled" id="subtitle"><span class="content">A Collection of Interesting Ideas, <time class="dt-updated" datetime="2017-05-25">25 May 2017</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
      <dt>This version:
@@ -1437,7 +1437,7 @@ Possible extra rowspan handling
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" src="https://licensebuttons.net/p/zero/1.0/80x15.png"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 8 December 2016,
+In addition, as of 25 May 2017,
 the editors have made this specification available under the <a href="http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at http://www.openwebfoundation.org/legal/the-owf-1-0-agreements/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1445,7 +1445,9 @@ Parts of this work may be from another specification document.  If so, those par
   </div>
   <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
   <div class="p-summary" data-fill-with="abstract">
-   <p>The goal of this document is to define the syntax and functionality of a new <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio">aspect-ratio</a> property for a CSS to allow CSS authors to describe the desired <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio">aspect-ratio</a> of an element, unless a more specific <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> are assigned.</p>
+   <p>The aspect-ratio property in CSS allows authors to define an aspect ratio for an element.
+
+The goal of this document is to define the syntax and functionality of a new <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio">aspect-ratio</a> property for a CSS to allow CSS authors to describe the desired <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio">aspect-ratio</a> of an element, unless a more specific <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> are assigned.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
@@ -1528,7 +1530,7 @@ Parts of this work may be from another specification document.  If so, those par
 </pre>
    </div>
    <h2 class="heading settled" data-level="2" id="calculating-aspect-ratio"><span class="secno">2. </span><span class="content">Calculating Aspect Ratio</span><a class="self-link" href="#calculating-aspect-ratio"></a></h2>
-   <p>The <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-4">aspect-ratio</a> will calculate the desired <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a>, <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a>, or calculate nothing at all based on which properties are defined for an element.</p>
+   <p>The <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-4">aspect-ratio</a> will calculate the desired <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a>, or calculate nothing at all based on which properties are defined for an element.</p>
    <table class="data" id="aspect-ratio-calculations">
     <thead>
      <tr>
@@ -1551,7 +1553,7 @@ Parts of this work may be from another specification document.  If so, those par
       <td>✓ 
       <td>
       <td>✓ 
-      <td>Width 
+      <td>None 
      <tr>
       <td>✓ 
       <td>✓ 
@@ -1564,7 +1566,7 @@ Parts of this work may be from another specification document.  If so, those par
       <td>None 
    </table>
    <h3 class="heading settled" data-level="2.1" id="aspect-ratio"><span class="secno">2.1. </span><span class="content">If <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-5">aspect-ratio</a> is defined</span><a class="self-link" href="#aspect-ratio"></a></h3>
-   <p>If the element has a defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-6">aspect-ratio</a> and does not have a defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> or <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a>, the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> will be calculated based on the element’s <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> on the page and the <a class="production css" data-link-type="type" href="https://drafts.csswg.org/mediaqueries-4/#typedef-ratio">&lt;ratio></a> defined by the property.</p>
+   <p>If the element has a defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-6">aspect-ratio</a> and does not have a defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a>, the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> will be calculated based on the element’s <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> on the page and the <a class="production css" data-link-type="type" href="https://drafts.csswg.org/mediaqueries-4/#typedef-ratio">&lt;ratio></a> defined by the property.</p>
    <div class="example" id="example-0e778d98">
     <a class="self-link" href="#example-0e778d98"></a> Example with <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-7">aspect-ratio</a> 
 <pre class="language-css highlight"><span class="nt">div </span><span class="p">{</span>
@@ -1585,7 +1587,7 @@ Parts of this work may be from another specification document.  If so, those par
    </div>
    <p>In this case an element has a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> of <code>200px</code> so the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> will be calculated as <code>200 / (16/9)</code> which would result in a <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> of <code>112.49px</code>.</p>
    <h3 class="heading settled" data-level="2.3" id="aspect-ratio-and-height"><span class="secno">2.3. </span><span class="content">If <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-10">aspect-ratio</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> are defined</span><a class="self-link" href="#aspect-ratio-and-height"></a></h3>
-   <p>If the element has a defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-11">aspect-ratio</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> and does not have a defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a>, the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> will be calculated based on the element’s defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> and the <a class="production css" data-link-type="type" href="https://drafts.csswg.org/mediaqueries-4/#typedef-ratio">&lt;ratio></a> defined by the property.</p>
+   <p>If the element has a defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-11">aspect-ratio</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> and does not have a defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a>, the specified dimensions will override the <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-12">aspect-ratio</a>.</p>
    <div class="example" id="example-d9a4f71c">
     <a class="self-link" href="#example-d9a4f71c"></a> Example with defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> 
 <pre class="language-css highlight"><span class="nt">div </span><span class="p">{</span>
@@ -1594,9 +1596,9 @@ Parts of this work may be from another specification document.  If so, those par
 <span class="p">}</span>
 </pre>
    </div>
-   <p>In this case an element has a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> of <code>200px</code> so the <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> will be calculated as <code>200 * (16/9)</code> which would result in a <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> of <code>355.55px</code>.</p>
-   <h3 class="heading settled" data-level="2.4" id="aspect-ratio-and-width-and-height"><span class="secno">2.4. </span><span class="content">If <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-12">aspect-ratio</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> are defined</span><a class="self-link" href="#aspect-ratio-and-width-and-height"></a></h3>
-   <p>If the element has a defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-13">aspect-ratio</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a>, the specified dimensions will override the <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-14">aspect-ratio</a>.</p>
+   <p>In this case an element has a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> of <code>200px</code> so nothing will be calculated according to the defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-13">aspect-ratio</a>.</p>
+   <h3 class="heading settled" data-level="2.4" id="aspect-ratio-and-width-and-height"><span class="secno">2.4. </span><span class="content">If <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-14">aspect-ratio</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> are defined</span><a class="self-link" href="#aspect-ratio-and-width-and-height"></a></h3>
+   <p>If the element has a defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-15">aspect-ratio</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a>, the specified dimensions will override the <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-16">aspect-ratio</a>.</p>
    <div class="example" id="example-b7b5e571">
     <a class="self-link" href="#example-b7b5e571"></a> Example with defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> 
 <pre class="language-css highlight"><span class="nt">div </span><span class="p">{</span>
@@ -1606,11 +1608,11 @@ Parts of this work may be from another specification document.  If so, those par
 <span class="p">}</span>
 </pre>
    </div>
-   <p>In this case an element has a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> of <code>200px</code> and a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> of <code>200px</code>, so neither property will be calculated according to the defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-15">aspect-ratio</a>.</p>
+   <p>In this case an element has a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> of <code>200px</code> and a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> of <code>200px</code>, so neither property will be calculated according to the defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-17">aspect-ratio</a>.</p>
    <h4 class="heading settled" data-level="2.4.1" id="with-important"><span class="secno">2.4.1. </span><span class="content">If <span class="css">!important</span> is defined</span><a class="self-link" href="#with-important"></a></h4>
    <p class="note" role="note">Note, even <span class="css">!important</span> won’t override a defined <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> and <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a></p>
    <div class="example" id="example-efb7dfdc">
-    <a class="self-link" href="#example-efb7dfdc"></a> Example <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-16">aspect-ratio</a> with <span class="css">important</span> defined 
+    <a class="self-link" href="#example-efb7dfdc"></a> Example <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-18">aspect-ratio</a> with <span class="css">important</span> defined 
 <pre class="language-css highlight"><span class="nt">div </span><span class="p">{</span>
   <span class="k">width</span><span class="p">:</span> <span class="m">200</span><span class="l">px</span><span class="p">;</span>
   <span class="k">height</span><span class="p">:</span> <span class="m">200</span><span class="l">px</span><span class="p">;</span>
@@ -1618,7 +1620,7 @@ Parts of this work may be from another specification document.  If so, those par
 }
 </pre>
    </div>
-   <p>In this case an element has a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> of <code>200px</code> and a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> of <code>200px</code>, so even with <span class="css">!important</span> nothing will be calculated according to the defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-17">aspect-ratio</a>.</p>
+   <p>In this case an element has a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-width">width</a> of <code>200px</code> and a specified <a class="property" data-link-type="propdesc" href="https://drafts.csswg.org/css21/visudet.html#propdef-height">height</a> of <code>200px</code>, so even with <span class="css">!important</span> nothing will be calculated according to the defined <a class="property" data-link-type="propdesc" href="#propdef-aspect-ratio" id="ref-for-propdef-aspect-ratio-19">aspect-ratio</a>.</p>
   </main>
   <div data-fill-with="conformance">
    <h2 class="no-ref no-num heading settled" id="conformance"><span class="content"> Conformance</span><a class="self-link" href="#conformance"></a></h2>
@@ -1831,9 +1833,9 @@ Parts of this work may be from another specification document.  If so, those par
     <li><a href="#ref-for-propdef-aspect-ratio-4">2. Calculating Aspect Ratio</a>
     <li><a href="#ref-for-propdef-aspect-ratio-5">2.1. If aspect-ratio is defined</a> <a href="#ref-for-propdef-aspect-ratio-6">(2)</a> <a href="#ref-for-propdef-aspect-ratio-7">(3)</a>
     <li><a href="#ref-for-propdef-aspect-ratio-8">2.2. If aspect-ratio and width are defined</a> <a href="#ref-for-propdef-aspect-ratio-9">(2)</a>
-    <li><a href="#ref-for-propdef-aspect-ratio-10">2.3. If aspect-ratio and height are defined</a> <a href="#ref-for-propdef-aspect-ratio-11">(2)</a>
-    <li><a href="#ref-for-propdef-aspect-ratio-12">2.4. If aspect-ratio and width and height are defined</a> <a href="#ref-for-propdef-aspect-ratio-13">(2)</a> <a href="#ref-for-propdef-aspect-ratio-14">(3)</a> <a href="#ref-for-propdef-aspect-ratio-15">(4)</a>
-    <li><a href="#ref-for-propdef-aspect-ratio-16">2.4.1. If !important is defined</a> <a href="#ref-for-propdef-aspect-ratio-17">(2)</a>
+    <li><a href="#ref-for-propdef-aspect-ratio-10">2.3. If aspect-ratio and height are defined</a> <a href="#ref-for-propdef-aspect-ratio-11">(2)</a> <a href="#ref-for-propdef-aspect-ratio-12">(3)</a> <a href="#ref-for-propdef-aspect-ratio-13">(4)</a>
+    <li><a href="#ref-for-propdef-aspect-ratio-14">2.4. If aspect-ratio and width and height are defined</a> <a href="#ref-for-propdef-aspect-ratio-15">(2)</a> <a href="#ref-for-propdef-aspect-ratio-16">(3)</a> <a href="#ref-for-propdef-aspect-ratio-17">(4)</a>
+    <li><a href="#ref-for-propdef-aspect-ratio-18">2.4.1. If !important is defined</a> <a href="#ref-for-propdef-aspect-ratio-19">(2)</a>
    </ul>
   </aside>
 <script>/* script-dfn-panel */
