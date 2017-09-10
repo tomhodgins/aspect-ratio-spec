@@ -1,5 +1,7 @@
 # aspect-ratio-spec
 
+[![CSS Standard Status](https://jonathantneal.github.io/css-db/badge/aspect-ratio.svg)](https://jonathantneal.github.io/css-db/#aspect-ratio)
+
 A spec for an Aspect Ratio property in CSS
 
 **View online:** [aspect-ratio.html](https://tomhodgins.github.io/aspect-ratio-spec/aspect-ratio.html)
